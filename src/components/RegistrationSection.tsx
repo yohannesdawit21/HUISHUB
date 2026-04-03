@@ -33,6 +33,7 @@ export function RegistrationSection({ yearOptions }: RegistrationSectionProps) {
 
   const [formValues, setFormValues] = useState<FormValues>(() => createInitialState())
   const [feedback, setFeedback] = useState<Feedback | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleFieldChange = (
     event: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
@@ -48,7 +49,7 @@ export function RegistrationSection({ yearOptions }: RegistrationSectionProps) {
     }))
   }
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     const normalizedValues = {
@@ -76,13 +77,41 @@ export function RegistrationSection({ yearOptions }: RegistrationSectionProps) {
       return
     }
 
-    const firstName = normalizedValues.fullName.split(/\s+/)[0] ?? 'student'
+    setIsSubmitting(true)
 
-    setFeedback({
-      tone: 'success',
-      message: `Thanks, ${firstName}. Your interest has been saved locally for this marketing demo.`,
-    })
-    setFormValues(createInitialState())
+    const firstName = normalizedValues.fullName.split(/\s+/)[0] ?? 'student'
+    const apiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? '/api'
+
+    try {
+      const response = await fetch(`${apiBaseUrl}/join-requests`, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(normalizedValues),
+      })
+
+      if (!response.ok) {
+        setFeedback({
+          tone: 'error',
+          message: 'Unable to submit right now. Please try again in a moment.',
+        })
+        return
+      }
+
+      setFeedback({
+        tone: 'success',
+        message: `Thanks, ${firstName}. Your registration request has been submitted.`,
+      })
+      setFormValues(createInitialState())
+    } catch {
+      setFeedback({
+        tone: 'error',
+        message: 'Unable to connect to the registration service. Please try again later.',
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -145,13 +174,12 @@ export function RegistrationSection({ yearOptions }: RegistrationSectionProps) {
             value={formValues.email}
           />
 
-          <Button className="registration-form__submit" type="submit">
-            Submit Registration
+          <Button className="registration-form__submit" disabled={isSubmitting} type="submit">
+            {isSubmitting ? 'Submitting...' : 'Submit Registration'}
           </Button>
 
           <p className="registration-form__note">
-            Demo behavior only: this form validates input and confirms submission
-            without sending data to a server.
+            Your request is securely sent to the registration service and stored for review.
           </p>
 
           {feedback ? (
