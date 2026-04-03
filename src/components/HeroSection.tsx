@@ -1,5 +1,7 @@
 import type { HeroContent } from '../data/landingContent'
 import { Button } from './ui/Button'
+import { BrandLogo } from './ui/BrandLogo'
+import { TelegramButton } from './ui/TelegramButton'
 
 type HeroSectionProps = {
   content: HeroContent
@@ -10,13 +12,21 @@ export function HeroSection({ content }: HeroSectionProps) {
     <section className="section section--hero" id="top">
       <div className="hero">
         <div className="hero__content reveal" data-reveal style={{ transitionDelay: '40ms' }}>
-          <p className="hero__eyebrow">{content.eyebrow}</p>
+          <div className="hero__brand">
+            <BrandLogo className="hero__brand-logo" size="xl" />
+
+            <div className="hero__brand-copy">
+              <p className="hero__eyebrow">{content.eyebrow}</p>
+              <p className="hero__brand-text">{content.supportingText}</p>
+            </div>
+          </div>
           <h1 className="hero__title">
             {content.titleLeading} <span className="hero__title-accent">{content.titleAccent}</span>
           </h1>
           <p className="hero__description">{content.description}</p>
 
           <div className="hero__actions">
+            <TelegramButton className="hero__telegram" />
             {content.ctas.map((cta) => (
               <Button className="hero__button" href={cta.href} key={cta.label} variant={cta.variant}>
                 {cta.label}

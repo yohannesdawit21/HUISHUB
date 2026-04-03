@@ -20,6 +20,7 @@ export type HeroContent = {
   description: string
   eyebrow: string
   quoteCard: HeroQuoteCard
+  supportingText: string
   titleAccent: string
   titleLeading: string
 }
@@ -28,6 +29,7 @@ export type Course = {
   code: string
   ects: number
   id: string
+  instructor?: string
   serialNumber: number
   title: string
 }
@@ -74,14 +76,16 @@ export type OverviewContent = {
 }
 
 export const heroContent: HeroContent = {
-  eyebrow: 'Information Systems Department',
+  eyebrow: 'Haramaya University Information Systems Community',
+  supportingText:
+    'Academic roadmap, digital community, and career direction designed for Information Systems students.',
   titleLeading: 'Welcome to the',
-  titleAccent: 'IS HUB',
+  titleAccent: 'HUISHUB',
   description:
-    'The Digital Home for Information System Students. Curating excellence in technology, strategy, and innovation at Haramaya University.',
+    'HUISHUB is the digital home for Haramaya University Information Systems students, bringing curriculum visibility, academic focus, community connection, and career awareness into one modern platform.',
   ctas: [
-    { href: '#registration', label: 'Join the HUB' },
-    { href: '#curriculum', label: 'Explore Courses', variant: 'secondary' },
+    { href: '#curriculum', label: 'Explore Schedule', variant: 'secondary' },
+    { href: '#career', label: 'Career Compass', variant: 'ghost' },
   ],
   quoteCard: {
     imageSrc: '/head-yisak.jpg',
@@ -98,32 +102,32 @@ export const heroContent: HeroContent = {
 
 export const overviewContent: OverviewContent = {
   eyebrow: 'About Information Systems',
-  title: 'Information Systems at Haramaya University and in the World',
+  title: 'Information Systems as a Discipline and a Profession',
   description:
-    'Information Systems connects people, processes, data, and digital tools. This field helps learners understand both the technical and organizational side of modern systems.',
+    'Information Systems is a professional field that connects technology, people, data, and organizational processes to improve services, support informed decisions, and strengthen institutional performance.',
   cards: [
     {
       id: 'haramaya-university',
       eyebrow: 'At Haramaya University',
-      title: 'A program that links technology with real institutional needs.',
+      title: 'A professionally oriented program built around real institutional needs.',
       description:
-        'At Haramaya University, Information Systems can be understood as a field that prepares students to see how software, databases, networks, and management practices work together. It supports learners who want to improve services, communication, decision-making, and digital operations in organizations and communities.',
+        'At Haramaya University, Information Systems prepares students to understand how software, databases, networks, digital services, and management practices work together in practical environments. Learners are trained to analyze requirements, support decision-making, design useful systems, and contribute to technology-enabled improvement across organizations and communities.',
       bullets: [
-        'Combines computing, analysis, and management thinking.',
-        'Helps students solve practical problems with digital systems.',
-        'Builds readiness for roles in design, development, support, and coordination.',
+        'Combines technical competence with analysis, communication, and management awareness.',
+        'Builds readiness for systems development, service improvement, data handling, and operational support.',
+        'Encourages solution-oriented thinking grounded in professional responsibility and institutional impact.',
       ],
     },
     {
       id: 'global-information-systems',
       eyebrow: 'Across the World',
-      title: 'A global field focused on making information useful and actionable.',
+      title: 'A strategic global field centered on making information usable, secure, and actionable.',
       description:
-        'Across the world, Information Systems helps organizations collect, organize, secure, and use information effectively. The field supports digital transformation through enterprise platforms, databases, analytics, cybersecurity, web and mobile services, and decision-support systems.',
+        'Across the world, Information Systems professionals help organizations collect, organize, secure, and apply information in ways that improve efficiency, accountability, collaboration, and service delivery. The field plays a major role in enterprise systems, analytics, cybersecurity, digital platforms, and decision-support environments that translate technology into measurable value.',
       bullets: [
-        'Connects people, process, data, and technology.',
-        'Improves efficiency, collaboration, and evidence-based decisions.',
-        'Creates opportunities in business, government, education, health, and entrepreneurship.',
+        'Connects people, processes, data, and technology within one operational framework.',
+        'Supports evidence-based planning, digital transformation, and service quality improvement.',
+        'Creates pathways in business, government, education, health, research, and entrepreneurship.',
       ],
     },
   ],
@@ -519,14 +523,12 @@ export const skillsCloud = [
 export const growthMetric: GrowthMetric = {
   label: 'Growth Metric',
   value: '+15%',
-  description: 'Projected growth for IS roles in the next decade.',
+  description: 'Projected long-term growth for Information Systems aligned roles.',
 }
 
-export const registrationYearOptions = ['Year II', 'Year III', 'Year IV']
-
 export const footerLinks = [
+  { href: '#about-is', label: 'About' },
   { href: '#curriculum', label: 'Curriculum' },
   { href: '#career', label: 'Career' },
-  { href: '#registration', label: 'Join Us' },
   { href: '#top', label: 'Back to Top' },
 ]

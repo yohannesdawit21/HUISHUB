@@ -3,7 +3,6 @@ import { CurriculumSection } from './components/CurriculumSection'
 import { HeroSection } from './components/HeroSection'
 import { Navigation } from './components/Navigation'
 import { OverviewSection } from './components/OverviewSection'
-import { RegistrationSection } from './components/RegistrationSection'
 import {
   careerPaths,
   curriculumYears,
@@ -11,10 +10,10 @@ import {
   growthMetric,
   heroContent,
   overviewContent,
-  registrationYearOptions,
   skillsCloud,
 } from './data/landingContent'
 import { useRevealOnScroll } from './hooks/useRevealOnScroll'
+import { BrandLogo } from './components/ui/BrandLogo'
 
 function App() {
   useRevealOnScroll()
@@ -32,15 +31,18 @@ function App() {
           skills={skillsCloud}
           growthMetric={growthMetric}
         />
-        <RegistrationSection yearOptions={registrationYearOptions} />
       </main>
 
       <footer className="page-footer reveal" data-reveal style={{ transitionDelay: '120ms' }}>
         <div className="page-footer__brand">
-          <p className="page-footer__title">HU IS HUB</p>
-          <p className="page-footer__copy">
-            Built for the Haramaya University Information Systems student community.
-          </p>
+          <BrandLogo className="page-footer__logo" size="md" />
+
+          <div className="page-footer__brand-copy">
+            <p className="page-footer__title">HUISHUB</p>
+            <p className="page-footer__copy">
+              A digital academic community for Haramaya University Information Systems students.
+            </p>
+          </div>
         </div>
 
         <nav aria-label="Footer navigation" className="page-footer__links">

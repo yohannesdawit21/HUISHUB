@@ -1,6 +1,6 @@
-# HU IS HUB
+# HUISHUB
 
-Landing portal for Haramaya University Information Systems students.
+Digital portal for Haramaya University Information Systems students.
 
 ## Tech Stack
 
