@@ -705,6 +705,10 @@ ul {
   box-shadow: 0 1rem 2rem rgba(25, 28, 29, 0.06);
 }
 
+.hero__brand-logo {
+  margin-inline: auto;
+}
+
 .hero__brand-copy {
   display: grid;
   gap: 0.5rem;
@@ -1353,7 +1357,34 @@ ul {
     display: none;
   }
 
+  .hero__content {
+    justify-items: center;
+    text-align: center;
+  }
+
   .hero__brand {
+    width: 100%;
+    max-width: 22rem;
+    justify-items: center;
+    padding: 0.9rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .hero__brand-copy {
+    justify-items: center;
+  }
+
+  .hero__brand-logo {
+    width: min(34vw, 7rem);
+  }
+
+  .hero__title,
+  .hero__description {
+    max-width: 100%;
+  }
+
+  .hero__actions {
     width: 100%;
   }
 
