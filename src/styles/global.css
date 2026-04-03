@@ -805,8 +805,10 @@ ul {
 .hero__quote-image {
   width: 4.25rem;
   height: 4.25rem;
-  border-radius: 1rem;
+  border-radius: 50%;
   object-fit: cover;
+  object-position: center 22%;
+  transform: scale(1.08);
   flex: none;
   box-shadow: 0 1rem 2rem rgba(25, 28, 29, 0.12);
   animation: heroFloat 8s ease-in-out infinite;
