@@ -92,9 +92,13 @@ export function RegistrationSection({ yearOptions }: RegistrationSectionProps) {
       })
 
       if (!response.ok) {
+        const isBackendUnavailable = response.status === 502 || response.status === 503
+
         setFeedback({
           tone: 'error',
-          message: 'Unable to submit right now. Please try again in a moment.',
+          message: isBackendUnavailable
+            ? 'Registration service is offline. Start backend with "npm run dev:backend" and try again.'
+            : 'Unable to submit right now. Please try again in a moment.',
         })
         return
       }
