@@ -35,7 +35,8 @@ function SemesterTable({ semester, yearLabel }: SemesterTableProps) {
             <tr>
               <th scope="col">Course Name</th>
               <th scope="col">Code</th>
-              <th scope="col">Credit Hours (ECTS)</th>
+              <th scope="col">Credit Hours</th>
+              <th scope="col">ECTS</th>
               <th scope="col">Instructor</th>
             </tr>
           </thead>
@@ -45,6 +46,15 @@ function SemesterTable({ semester, yearLabel }: SemesterTableProps) {
               <tr key={`${semester.id}-${course.id}`}>
                 <td className="curriculum-table__course">{course.title}</td>
                 <td className="curriculum-table__code">{course.code}</td>
+                <td
+                  className={
+                    course.creditHours !== undefined
+                      ? 'curriculum-table__credit-hours'
+                      : 'curriculum-table__credit-hours curriculum-table__instructor--muted'
+                  }
+                >
+                  {course.creditHours ?? 'TBA'}
+                </td>
                 <td className="curriculum-table__credits">{course.ects}</td>
                 <td
                   className={

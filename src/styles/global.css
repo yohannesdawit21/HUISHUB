@@ -935,7 +935,7 @@ ul {
 
 .curriculum-table {
   width: 100%;
-  min-width: 44rem;
+  min-width: 50rem;
   border-collapse: separate;
   border-spacing: 0;
 }
@@ -970,6 +970,7 @@ ul {
 }
 
 .curriculum-table__course,
+.curriculum-table__credit-hours,
 .curriculum-table__credits {
   color: var(--color-on-surface);
   font-weight: 600;
@@ -1231,7 +1232,7 @@ ul {
   }
 
   .curriculum-table {
-    min-width: 34rem;
+    min-width: 40rem;
   }
 }
 

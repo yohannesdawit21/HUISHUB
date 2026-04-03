@@ -27,6 +27,7 @@ export type HeroContent = {
 
 export type Course = {
   code: string
+  creditHours?: number
   ects: number
   id: string
   instructor?: string
@@ -139,12 +140,14 @@ function createCourse(
   title: string,
   code: string,
   ects: number,
+  creditHours?: number,
 ): Course {
   return {
     id,
     serialNumber,
     title,
     code,
+    creditHours,
     ects,
   }
 }
