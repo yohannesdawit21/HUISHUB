@@ -99,7 +99,7 @@ export const heroContent: HeroContent = {
     name: 'Yisehak Gebeyehu',
     headline: 'Full Stack Web Application Developer | Creative Graphics Designer',
     currentRole: 'Information Systems Department Head',
-    location: 'Harar, Ethiopia',
+    location: 'Haramaya, Ethiopia',
     linkedinUrl: 'https://www.linkedin.com/in/yisehak-gebeyehu-547a40155/',
     about:
       "Passionate educator and technology enthusiast with a BSc in Information Systems and an MSc in Information Technology, combining lecturing, full-stack web development, and visual design to build practical, user-friendly digital experiences.",
