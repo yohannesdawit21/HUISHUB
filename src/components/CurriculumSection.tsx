@@ -5,13 +5,63 @@ type CurriculumSectionProps = {
   years: CurriculumYear[]
 }
 
-type ScheduleRow = {
-  code: string
-  credits: number
-  id: string
-  instructor?: string
-  semester: string
-  title: string
+type SemesterTableProps = {
+  semester: CurriculumSemester
+  yearLabel: string
+}
+
+function SemesterTable({ semester, yearLabel }: SemesterTableProps) {
+  const semesterTotal = semester.courses.reduce((sum, course) => sum + course.ects, 0)
+
+  return (
+    <article className="curriculum-semester">
+      <div className="curriculum-semester__header">
+        <div className="curriculum-semester__heading">
+          <p className="curriculum-semester__eyebrow">{yearLabel}</p>
+          <h4 className="curriculum-semester__title">{semester.label}</h4>
+        </div>
+
+        <p className="curriculum-semester__meta">{semesterTotal} ECTS Total</p>
+      </div>
+
+      {semester.note ? <p className="curriculum__note">{semester.note}</p> : null}
+
+      <div className="curriculum-table-shell curriculum-table-shell--semester">
+        <table className="curriculum-table">
+          <caption className="visually-hidden">
+            {yearLabel} {semester.label} schedule table
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Course Name</th>
+              <th scope="col">Code</th>
+              <th scope="col">Credit Hours (ECTS)</th>
+              <th scope="col">Instructor</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {semester.courses.map((course) => (
+              <tr key={`${semester.id}-${course.id}`}>
+                <td className="curriculum-table__course">{course.title}</td>
+                <td className="curriculum-table__code">{course.code}</td>
+                <td className="curriculum-table__credits">{course.ects}</td>
+                <td
+                  className={
+                    course.instructor
+                      ? 'curriculum-table__instructor'
+                      : 'curriculum-table__instructor curriculum-table__instructor--muted'
+                  }
+                >
+                  {course.instructor ?? 'To be assigned'}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </article>
+  )
 }
 
 export function CurriculumSection({ years }: CurriculumSectionProps) {
@@ -22,46 +72,8 @@ export function CurriculumSection({ years }: CurriculumSectionProps) {
     [activeYearId, years],
   )
 
-  const scheduleRows = useMemo<ScheduleRow[]>(
-    () =>
-      activeYear?.semesters.flatMap((semester: CurriculumSemester) =>
-        semester.courses.map((course) => ({
-          code: course.code,
-          credits: course.ects,
-          id: `${semester.id}-${course.id}`,
-          instructor: course.instructor,
-          semester: semester.label,
-          title: course.title,
-        })),
-      ) ?? [],
-    [activeYear],
-  )
-
-  const semesterTotals = useMemo(
-    () =>
-      activeYear?.semesters.map((semester) => ({
-        label: semester.label,
-        total: semester.courses.reduce((sum, course) => sum + course.ects, 0),
-      })) ?? [],
-    [activeYear],
-  )
-
-  const yearlyTotal = useMemo(
-    () => scheduleRows.reduce((total, course) => total + course.credits, 0),
-    [scheduleRows],
-  )
-
-  const yearNotes = useMemo(
-    () => activeYear?.semesters.flatMap((semester) => semester.note ?? []) ?? [],
-    [activeYear],
-  )
-
   if (!activeYear) {
     return null
-  }
-
-  const handleYearChange = (yearId: string) => {
-    setActiveYearId(yearId)
   }
 
   return (
@@ -69,8 +81,8 @@ export function CurriculumSection({ years }: CurriculumSectionProps) {
       <div className="curriculum__header reveal" data-reveal>
         <h2 className="curriculum__section-title">The HUIS Curriculum</h2>
         <p className="curriculum__section-copy">
-          Review the full yearly schedule in one place, including both semesters, credit load,
-          and instructional assignments as they become available.
+          Select a year to view only that year, with separate schedule tables for Semester I and
+          Semester II.
         </p>
       </div>
 
@@ -89,7 +101,7 @@ export function CurriculumSection({ years }: CurriculumSectionProps) {
               aria-selected={isActive}
               className={['tab', isActive ? 'tab--active' : ''].filter(Boolean).join(' ')}
               key={year.id}
-              onClick={() => handleYearChange(year.id)}
+              onClick={() => setActiveYearId(year.id)}
               role="tab"
               type="button"
             >
@@ -99,76 +111,17 @@ export function CurriculumSection({ years }: CurriculumSectionProps) {
         })}
       </div>
 
-      <div className="curriculum__content">
-        <div className="curriculum__intro reveal is-visible" data-reveal key={activeYear.id}>
+      <div className="curriculum__content content-swap" key={activeYear.id}>
+        <div className="curriculum__intro reveal is-visible" data-reveal>
           <p className="curriculum__label">{activeYear.label}</p>
           <h3 className="curriculum__headline">{activeYear.headline}</h3>
           <p className="curriculum__description">{activeYear.description}</p>
         </div>
 
-        <div className="curriculum__summary content-swap" key={`${activeYear.id}-summary`}>
-          {semesterTotals.map((semester) => (
-            <article className="curriculum-summary-card" key={semester.label}>
-              <p className="curriculum-summary-card__label">{semester.label}</p>
-              <p className="curriculum-summary-card__value">{semester.total} ECTS</p>
-              <p className="curriculum-summary-card__copy">Planned credit load</p>
-            </article>
+        <div className="curriculum__tables">
+          {activeYear.semesters.map((semester) => (
+            <SemesterTable key={semester.id} semester={semester} yearLabel={activeYear.label} />
           ))}
-
-          <article className="curriculum-summary-card curriculum-summary-card--accent">
-            <p className="curriculum-summary-card__label">Academic Year Total</p>
-            <p className="curriculum-summary-card__value">{yearlyTotal} ECTS</p>
-            <p className="curriculum-summary-card__copy">{scheduleRows.length} listed courses</p>
-          </article>
-        </div>
-
-        {yearNotes.length ? (
-          <div className="curriculum__notes content-swap" key={`${activeYear.id}-notes`}>
-            {yearNotes.map((note) => (
-              <p className="curriculum__note" key={note}>
-                {note}
-              </p>
-            ))}
-          </div>
-        ) : null}
-
-        <div className="curriculum-table-shell content-swap" key={activeYear.id}>
-          <table className="curriculum-table">
-            <caption className="visually-hidden">
-              Full schedule table for {activeYear.label} covering Semester I and Semester II.
-            </caption>
-            <thead>
-              <tr>
-                <th scope="col">Course Name</th>
-                <th scope="col">Code</th>
-                <th scope="col">Credit Hours (ECTS)</th>
-                <th scope="col">Semester</th>
-                <th scope="col">Instructor</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {scheduleRows.map((course) => (
-                <tr key={course.id}>
-                  <td className="curriculum-table__course">{course.title}</td>
-                  <td className="curriculum-table__code">{course.code}</td>
-                  <td className="curriculum-table__credits">{course.credits}</td>
-                  <td>
-                    <span className="curriculum-table__semester-pill">{course.semester}</span>
-                  </td>
-                  <td
-                    className={
-                      course.instructor
-                        ? 'curriculum-table__instructor'
-                        : 'curriculum-table__instructor curriculum-table__instructor--muted'
-                    }
-                  >
-                    {course.instructor ?? 'To be assigned'}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </div>
       </div>
     </section>

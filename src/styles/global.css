@@ -1,5 +1,5 @@
 :root {
-  --nav-offset: 9rem;
+  --nav-offset: 8rem;
 }
 
 *,
@@ -189,7 +189,7 @@ ul {
 .page-shell {
   width: min(100%, calc(var(--content-width) + 2.2rem));
   margin: 0 auto;
-  padding: calc(var(--nav-offset) + 1rem) 1rem 3rem;
+  padding: calc(var(--nav-offset) + 0.75rem) 1rem 3rem;
 }
 
 .page {
@@ -203,7 +203,7 @@ ul {
   right: 0;
   left: 0;
   z-index: 50;
-  padding: 0.8rem 0.75rem 0;
+  padding: 0 0.75rem;
 }
 
 .site-nav__inner {
@@ -215,7 +215,8 @@ ul {
   gap: 0.75rem 1rem;
   padding: 0.95rem 1rem;
   border: 1px solid rgba(111, 122, 112, 0.14);
-  border-radius: 1.35rem;
+  border-top: 0;
+  border-radius: 0 0 1.35rem 1.35rem;
   background: rgba(248, 249, 250, 0.8);
   backdrop-filter: blur(18px);
   box-shadow: 0 1rem 2.4rem rgba(25, 28, 29, 0.08);
@@ -451,7 +452,7 @@ ul {
 .section-heading__eyebrow,
 .hero__eyebrow,
 .curriculum__label,
-.curriculum-summary-card__label,
+.curriculum-semester__eyebrow,
 .career-subheading__eyebrow,
 .career-card__eyebrow,
 .metric-card__label {
@@ -652,7 +653,7 @@ ul {
 .career-card,
 .skills-card,
 .metric-card,
-.curriculum-summary-card {
+.curriculum-semester {
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -668,7 +669,7 @@ ul {
 .career-card::before,
 .skills-card::before,
 .metric-card::before,
-.curriculum-summary-card::before {
+.curriculum-semester::before {
   content: '';
   position: absolute;
   top: -3rem;
@@ -862,40 +863,6 @@ ul {
   font-size: clamp(1.65rem, 4vw, 2.35rem);
 }
 
-.curriculum__summary {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-}
-
-.curriculum-summary-card {
-  display: grid;
-  gap: 0.45rem;
-  padding: 1rem 1.1rem;
-  border: 1px solid rgba(111, 122, 112, 0.12);
-  border-radius: 1.15rem;
-  background: rgba(255, 255, 255, 0.88);
-}
-
-.curriculum-summary-card--accent {
-  background: linear-gradient(135deg, rgba(0, 77, 39, 0.92) 0%, rgba(0, 104, 55, 0.84) 100%);
-  border-color: transparent;
-}
-
-.curriculum-summary-card__value {
-  color: var(--color-on-surface);
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-}
-
-.curriculum-summary-card--accent .curriculum-summary-card__label,
-.curriculum-summary-card--accent .curriculum-summary-card__value,
-.curriculum-summary-card--accent .curriculum-summary-card__copy {
-  color: #ffffff;
-}
-
 .curriculum__notes {
   display: grid;
   gap: 0.65rem;
@@ -908,6 +875,52 @@ ul {
   border: 1px solid rgba(0, 77, 39, 0.08);
 }
 
+.curriculum__tables {
+  display: grid;
+  gap: 1rem;
+}
+
+.curriculum-semester {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1rem;
+  border: 1px solid rgba(111, 122, 112, 0.12);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.curriculum-semester__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.curriculum-semester__heading {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.curriculum-semester__eyebrow,
+.curriculum-semester__meta {
+  color: var(--color-primary);
+  font-family: var(--font-label);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.curriculum-semester__title {
+  color: var(--color-on-surface);
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
 .curriculum-table-shell {
   overflow-x: auto;
   border: 1px solid rgba(111, 122, 112, 0.16);
@@ -916,9 +929,13 @@ ul {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
+.curriculum-table-shell--semester {
+  border-radius: 1rem;
+}
+
 .curriculum-table {
   width: 100%;
-  min-width: 52rem;
+  min-width: 44rem;
   border-collapse: separate;
   border-spacing: 0;
 }
@@ -966,22 +983,6 @@ ul {
   color: var(--color-primary);
   font-family: var(--font-label);
   font-weight: 700;
-}
-
-.curriculum-table__semester-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2rem;
-  padding: 0.4rem 0.72rem;
-  border-radius: var(--radius-pill);
-  background: rgba(0, 77, 39, 0.08);
-  color: var(--color-primary);
-  font-family: var(--font-label);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 
 .curriculum-table__instructor--muted {
@@ -1168,7 +1169,7 @@ ul {
   .career-card:hover,
   .skills-card:hover,
   .metric-card:hover,
-  .curriculum-summary-card:hover {
+  .curriculum-semester:hover {
     transform: translateY(-0.3rem);
     box-shadow: 0 1.8rem 3.2rem rgba(25, 28, 29, 0.08);
     border-color: rgba(0, 104, 55, 0.14);
@@ -1179,7 +1180,7 @@ ul {
   .career-card:hover::before,
   .skills-card:hover::before,
   .metric-card:hover::before,
-  .curriculum-summary-card:hover::before {
+  .curriculum-semester:hover::before {
     opacity: 1;
     transform: scale(1);
   }
@@ -1228,11 +1229,15 @@ ul {
   .page-footer__brand {
     align-items: flex-start;
   }
+
+  .curriculum-table {
+    min-width: 34rem;
+  }
 }
 
 @media (min-width: 720px) {
   :root {
-    --nav-offset: 6.9rem;
+    --nav-offset: 5.8rem;
   }
 
   .page {
@@ -1283,6 +1288,11 @@ ul {
 
   .career-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .curriculum__tables {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
   }
 
   .page-footer {
