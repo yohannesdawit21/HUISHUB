@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-variant": "#e1e3e4",
+            "tertiary-container": "#943e46",
+            "surface-container-high": "#e7e8e9",
+            "background": "#f8f9fa",
+            "secondary": "#46654e",
+            "on-primary-fixed": "#00210e",
+            "primary": "#004d27",
+            "surface-container-highest": "#e1e3e4",
+            "error-container": "#ffdad6",
+            "on-error": "#ffffff",
+            "on-primary-container": "#8ee4a6",
+            "on-background": "#191c1d",
+            "on-secondary-container": "#4a6a52",
+            "on-secondary-fixed-variant": "#2f4d37",
+            "surface": "#f8f9fa",
+            "on-secondary-fixed": "#02210e",
+            "on-error-container": "#93000a",
+            "on-tertiary-container": "#ffc3c5",
+            "on-tertiary": "#ffffff",
+            "outline-variant": "#bec9be",
+            "inverse-on-surface": "#f0f1f2",
+            "primary-container": "#006837",
+            "surface-bright": "#f8f9fa",
+            "on-primary": "#ffffff",
+            "inverse-primary": "#83d99c",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#191c1d",
+            "tertiary-fixed": "#ffdada",
+            "surface-container": "#edeeef",
+            "surface-dim": "#d9dadb",
+            "on-surface-variant": "#3f4940",
+            "error": "#ba1a1a",
+            "tertiary-fixed-dim": "#ffb3b6",
+            "inverse-surface": "#2e3132",
+            "secondary-fixed": "#c8ebcd",
+            "on-tertiary-fixed-variant": "#7b2b34",
+            "outline": "#6f7a70",
+            "on-tertiary-fixed": "#40000c",
+            "surface-container-low": "#f3f4f5",
+            "primary-fixed": "#9ef6b6",
+            "on-primary-fixed-variant": "#00522a",
+            "surface-tint": "#0b6d3b",
+            "tertiary": "#762730",
+            "secondary-container": "#c5e9ca",
+            "secondary-fixed-dim": "#accfb2",
+            "on-secondary": "#ffffff",
+            "primary-fixed-dim": "#83d99c"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="bg-surface/70 backdrop-blur-md dark:bg-slate-900/70 docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-800 dark:text-green-400" data-icon="menu_book">menu_book</span>
+<h1 class="text-xl font-extrabold text-green-700 dark:text-green-500 tracking-tighter font-headline">HU IS HUB</h1>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-green-700 dark:text-green-400 font-bold font-label text-sm uppercase tracking-wider" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300 transition-colors duration-200 font-label text-sm uppercase tracking-wider" href="#curriculum">Curriculum</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300 transition-colors duration-200 font-label text-sm uppercase tracking-wider" href="#career">Career</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300 transition-colors duration-200 font-label text-sm uppercase tracking-wider" href="#registration">Resources</a>
+</nav>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="pb-20 md:pb-0">
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-12 pb-24 px-6 max-w-7xl mx-auto">
+<div class="grid lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 space-y-8">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-xs font-bold uppercase tracking-widest font-label">Information Systems Department</span>
+<h2 class="text-5xl md:text-7xl font-extrabold font-headline leading-[1.1] tracking-tight text-on-surface">
+            Welcome to the <span class="text-primary-container">IS HUB</span>
+</h2>
+<p class="text-xl text-on-surface-variant max-w-xl leading-relaxed">
+            The Digital Home for Information System Students. Curating excellence in technology, strategy, and innovation at Haramaya University.
+          </p>
+<div class="flex gap-4 pt-4">
+<a class="px-8 py-4 bg-primary text-on-primary rounded-xl font-bold transition-all active:scale-95 shadow-[0_20px_40px_rgba(0,104,55,0.08)]" href="#registration">Join the HUB</a>
+<a class="px-8 py-4 border border-outline-variant rounded-xl font-bold hover:bg-surface-container-low transition-all" href="#curriculum">Explore Courses</a>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<!-- Head's Welcome Card -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.05)] border border-outline-variant/10 relative z-10">
+<div class="flex items-start gap-6 mb-6">
+<img alt="Head Yisak" class="w-20 h-20 rounded-full object-cover grayscale" data-alt="professional portrait of an academic department head in a minimalist modern office setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPPeGNNw0MmKG1fOJs6l65PClM9NZXhc8p3EfukG7bg6KYyXsbkkaZEL3N7OxbCHdaJQqwAtjetwsyGKX32BvEcWFhj7yS5rZE1b_e0XgHC9sze3Kg3RTsrPM8WRKLesjtyoASbtvcyLEhdl_CrulY11J6ko7lk0w59NflbYCSbkYnEzUDDVKxxY0xSlKuE1ZWjOYS38oJEoQCamFbpEcgxiSJQ96bJYMZjCZa4p5785kymaAqwbzLUXxd5DfoGUVij45Nr-efeZgQ"/>
+<div>
+<h4 class="font-headline font-bold text-lg text-on-surface">Head Yisak</h4>
+<p class="text-sm text-primary-container font-semibold uppercase tracking-tighter">Department Head</p>
+</div>
+</div>
+<p class="text-on-surface-variant italic leading-relaxed mb-6">
+              "Innovation isn't just about code; it's about the community we build around it. Here at the IS HUB, we cultivate the next generation of digital architects and strategic thinkers."
+            </p>
+<div class="h-1 w-12 bg-primary-container"></div>
+</div>
+<!-- Decorative element -->
+<div class="absolute -top-12 -right-12 w-64 h-64 bg-primary-fixed/30 rounded-full blur-3xl -z-0"></div>
+</div>
+</div>
+</section>
+<!-- The IS Curriculum (Tabbed) -->
+<section class="bg-surface-container-low py-24 px-6" id="curriculum">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16">
+<h3 class="text-3xl font-extrabold font-headline mb-4">The IS Curriculum</h3>
+<p class="text-on-surface-variant">A curated journey through the core pillars of Information Systems.</p>
+</div>
+<!-- Tab Interface -->
+<div class="bg-surface-container-high p-1.5 rounded-full inline-flex mb-12 overflow-x-auto hide-scrollbar max-w-full">
+<button class="px-8 py-2.5 rounded-full bg-surface-container-lowest shadow-sm text-primary font-bold text-sm transition-all whitespace-nowrap">Year II</button>
+<button class="px-8 py-2.5 rounded-full text-on-surface-variant font-medium text-sm hover:bg-surface-container-highest transition-all whitespace-nowrap">Year III</button>
+<button class="px-8 py-2.5 rounded-full text-on-surface-variant font-medium text-sm hover:bg-surface-container-highest transition-all whitespace-nowrap">Year IV</button>
+</div>
+<div class="space-y-12">
+<!-- Year 2 Courses -->
+<div>
+<h4 class="text-xs font-bold text-primary-container uppercase tracking-[0.2em] mb-6 border-b border-outline-variant/30 pb-2">Year II Curriculum</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- OOP -->
+<div class="bg-surface-container-lowest p-6 rounded-xl hover:bg-primary-fixed transition-all group border border-outline-variant/10">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container group-hover:text-on-primary">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+</div>
+<h5 class="text-xl font-bold mb-2">OOP</h5>
+<p class="text-sm text-on-surface-variant mb-6">Object Oriented Programming: Mastering the architecture of modern software development.</p>
+<span class="text-xs font-bold text-primary tracking-widest uppercase">Credits: 4</span>
+</div>
+<!-- Database Systems -->
+<div class="bg-surface-container-lowest p-6 rounded-xl hover:bg-primary-fixed transition-all group border border-outline-variant/10">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container group-hover:text-on-primary">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+</div>
+<h5 class="text-xl font-bold mb-2">Database Systems</h5>
+<p class="text-sm text-on-surface-variant mb-6">Structuring the world's information through relational and non-relational models.</p>
+<span class="text-xs font-bold text-primary tracking-widest uppercase">Credits: 4</span>
+</div>
+<!-- System Analysis -->
+<div class="bg-surface-container-lowest p-6 rounded-xl hover:bg-primary-fixed transition-all group border border-outline-variant/10">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container group-hover:text-on-primary">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+</div>
+<h5 class="text-xl font-bold mb-2">System Analysis</h5>
+<p class="text-sm text-on-surface-variant mb-6">The blueprint of business: Analyzing workflows and designing digital solutions.</p>
+<span class="text-xs font-bold text-primary tracking-widest uppercase">Credits: 3</span>
+</div>
+<!-- Discrete Math -->
+<div class="bg-surface-container-lowest p-6 rounded-xl hover:bg-primary-fixed transition-all group border border-outline-variant/10">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container group-hover:text-on-primary">
+<span class="material-symbols-outlined" data-icon="functions">functions</span>
+</div>
+<h5 class="text-xl font-bold mb-2">Discrete Math</h5>
+<p class="text-sm text-on-surface-variant mb-6">The mathematical foundation of algorithms, logic, and computational theory.</p>
+<span class="text-xs font-bold text-primary tracking-widest uppercase">Credits: 3</span>
+</div>
+<!-- Data Structures -->
+<div class="bg-surface-container-lowest p-6 rounded-xl hover:bg-primary-fixed transition-all group border border-outline-variant/10">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container group-hover:text-on-primary">
+<span class="material-symbols-outlined" data-icon="schema">schema</span>
+</div>
+<h5 class="text-xl font-bold mb-2">Data Structures</h5>
+<p class="text-sm text-on-surface-variant mb-6">Optimizing performance: Choosing the right structures for efficient computation.</p>
+<span class="text-xs font-bold text-primary tracking-widest uppercase">Credits: 4</span>
+</div>
+</div>
+</div>
+<!-- Year 3 Courses -->
+<div class="pt-8">
+<h4 class="text-xs font-bold text-primary-container uppercase tracking-[0.2em] mb-6 border-b border-outline-variant/30 pb-2">Year III Curriculum</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Mobile App Dev -->
+<div class="bg-surface-container-lowest p-6 rounded-xl hover:bg-primary-fixed transition-all group border border-outline-variant/10">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container group-hover:text-on-primary">
+<span class="material-symbols-outlined" data-icon="smartphone">smartphone</span>
+</div>
+<h5 class="text-xl font-bold mb-2">Mobile App Dev</h5>
+<p class="text-sm text-on-surface-variant mb-6">Building native and cross-platform applications for the mobile-first generation.</p>
+<span class="text-xs font-bold text-primary tracking-widest uppercase">Credits: 4</span>
+</div>
+<!-- AI Fundamentals -->
+<div class="bg-surface-container-lowest p-6 rounded-xl hover:bg-primary-fixed transition-all group border border-outline-variant/10">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container group-hover:text-on-primary">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+</div>
+<h5 class="text-xl font-bold mb-2">AI Fundamentals</h5>
+<p class="text-sm text-on-surface-variant mb-6">Exploring machine learning, neural networks, and the future of intelligent systems.</p>
+<span class="text-xs font-bold text-primary tracking-widest uppercase">Credits: 3</span>
+</div>
+<!-- Network Admin -->
+<div class="bg-surface-container-lowest p-6 rounded-xl hover:bg-primary-fixed transition-all group border border-outline-variant/10">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container group-hover:text-on-primary">
+<span class="material-symbols-outlined" data-icon="router">router</span>
+</div>
+<h5 class="text-xl font-bold mb-2">Network Admin</h5>
+<p class="text-sm text-on-surface-variant mb-6">Managing complex infrastructure, routing, and ensuring enterprise-grade connectivity.</p>
+<span class="text-xs font-bold text-primary tracking-widest uppercase">Credits: 3</span>
+</div>
+<!-- Internet Programming -->
+<div class="bg-surface-container-lowest p-6 rounded-xl hover:bg-primary-fixed transition-all group border border-outline-variant/10">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container group-hover:text-on-primary">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</div>
+<h5 class="text-xl font-bold mb-2">Internet Programming</h5>
+<p class="text-sm text-on-surface-variant mb-6">Full-stack development: crafting dynamic web applications from front to back.</p>
+<span class="text-xs font-bold text-primary tracking-widest uppercase">Credits: 4</span>
+</div>
+<!-- Event-Driven Programming -->
+<div class="bg-surface-container-lowest p-6 rounded-xl hover:bg-primary-fixed transition-all group border border-outline-variant/10">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container group-hover:text-on-primary">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+</div>
+<h5 class="text-xl font-bold mb-2">Event-Driven Programming</h5>
+<p class="text-sm text-on-surface-variant mb-6">Designing responsive systems that react to user interactions and real-time triggers.</p>
+<span class="text-xs font-bold text-primary tracking-widest uppercase">Credits: 3</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Career & Skills Compass -->
+<section class="py-24 px-6 max-w-7xl mx-auto" id="career">
+<div class="grid lg:grid-cols-12 gap-16">
+<div class="lg:col-span-8">
+<div class="mb-12">
+<h3 class="text-3xl font-extrabold font-headline mb-4">Career &amp; Skills Compass</h3>
+<p class="text-on-surface-variant">Where an IS degree can take you.</p>
+</div>
+<!-- Asymmetrical Job Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-surface-container p-8 rounded-xl flex flex-col justify-between min-h-[240px]">
+<h6 class="text-2xl font-bold text-primary-container">ERP Specialist</h6>
+<p class="text-on-surface-variant">Manage integrated systems for global enterprises.</p>
+<div class="flex items-center gap-2 text-primary font-bold">
+                Explore Path <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/30 p-8 rounded-xl flex flex-col justify-between min-h-[240px]">
+<h6 class="text-2xl font-bold">IT Architect</h6>
+<p class="text-on-surface-variant">Design the structural integrity of digital ecosystems.</p>
+<div class="flex items-center gap-2 text-primary font-bold">
+                Explore Path <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+<div class="md:col-span-2 bg-primary-container text-on-primary p-8 rounded-xl flex flex-col md:flex-row justify-between items-end gap-6">
+<div class="max-w-md">
+<h6 class="text-3xl font-extrabold font-headline mb-4">UI Designer</h6>
+<p class="opacity-90">Bridging the gap between human needs and technical functionality through beautiful, intuitive interfaces.</p>
+</div>
+<span class="material-symbols-outlined text-6xl opacity-20">brush</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/30 p-8 rounded-xl flex flex-col justify-between min-h-[240px]">
+<h6 class="text-2xl font-bold">Network Designer</h6>
+<p class="text-on-surface-variant">Crafting the high-speed pathways of modern communication.</p>
+<div class="flex items-center gap-2 text-primary font-bold">
+                Explore Path <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+<div class="bg-surface-container p-8 rounded-xl flex flex-col justify-between min-h-[240px]">
+<h6 class="text-2xl font-bold text-primary-container">System Developer</h6>
+<p class="text-on-surface-variant">Building the tools that power the digital revolution.</p>
+<div class="flex items-center gap-2 text-primary font-bold">
+                Explore Path <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4">
+<div class="bg-surface-container-low p-8 rounded-2xl sticky top-28">
+<h4 class="font-headline font-bold text-xl mb-8">Skills Cloud</h4>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 bg-surface-container-lowest rounded-full border border-outline-variant/20 text-sm font-medium">Project Management</span>
+<span class="px-4 py-2 bg-surface-container-lowest rounded-full border border-outline-variant/20 text-sm font-medium">Data Analysis</span>
+<span class="px-4 py-2 bg-surface-container-lowest rounded-full border border-outline-variant/20 text-sm font-medium">System Management</span>
+<span class="px-4 py-2 bg-surface-container-lowest rounded-full border border-outline-variant/20 text-sm font-medium">Cybersecurity</span>
+<span class="px-4 py-2 bg-surface-container-lowest rounded-full border border-outline-variant/20 text-sm font-medium">UX Research</span>
+<span class="px-4 py-2 bg-surface-container-lowest rounded-full border border-outline-variant/20 text-sm font-medium">Cloud Architecture</span>
+</div>
+<div class="mt-12 p-6 bg-primary/5 rounded-xl border border-primary/10">
+<p class="text-sm font-semibold text-primary mb-2 uppercase tracking-widest">Growth Metric</p>
+<p class="text-2xl font-bold font-headline">+15%</p>
+<p class="text-xs text-on-surface-variant mt-1 text-balance">Projected growth for IS roles in the next decade.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Registration Section -->
+<section class="bg-white py-20 px-6" id="registration">
+<div class="max-w-2xl mx-auto text-center mb-12">
+<h3 class="text-3xl font-extrabold font-headline mb-4">Join the HUB</h3>
+<p class="text-on-surface-variant">Register to access resources and the student portal.</p>
+</div>
+<div class="max-w-xl mx-auto">
+<form class="grid grid-cols-1 gap-5">
+<input class="w-full px-5 py-4 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 transition-all text-sm" placeholder="Full Name" type="text"/>
+<div class="grid grid-cols-2 gap-4">
+<input class="w-full px-5 py-4 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 transition-all text-sm" placeholder="ID Number (UGR/...)" type="text"/>
+<select class="w-full px-5 py-4 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 transition-all text-sm appearance-none">
+<option>Year II</option>
+<option>Year III</option>
+<option>Year IV</option>
+</select>
+</div>
+<input class="w-full px-5 py-4 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 transition-all text-sm" placeholder="Email (yourname@haramaya.edu.et)" type="email"/>
+<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-bold text-base active:scale-[0.98] transition-all shadow-sm" type="button">Submit Registration</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant/20 py-12">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-center md:text-left">
+<h4 class="font-manrope font-black text-primary text-xl mb-1">HU IS HUB</h4>
+<p class="text-xs text-on-surface-variant">© 2024 Haramaya University Information Systems</p>
+</div>
+<div class="flex gap-8">
+<a class="text-xs font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Calendar</a>
+<a class="text-xs font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Main Site</a>
+<a class="text-xs font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Portal</a>
+<a class="text-xs font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Support</a>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-4 pt-2 bg-white/80 backdrop-blur-lg dark:bg-slate-950/80 border-t border-slate-100 dark:border-slate-800 shadow-[0_-10px_30px_rgba(0,104,55,0.05)] z-50 rounded-t-3xl">
+<a class="flex flex-col items-center justify-center bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-2xl px-3 py-1.5 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-3 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all" href="#curriculum">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Curriculum</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-3 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all" href="#career">
+<span class="material-symbols-outlined" data-icon="work_outline">work_outline</span>
+<span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Career</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-3 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all" href="#registration">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+<span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Resources</span>
+</a>
+</nav>
+</body></html>

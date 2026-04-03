@@ -1,0 +1,66 @@
+:root {
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --color-primary: #004d27;
+  --color-primary-container: #006837;
+  --color-primary-fixed: #9ef6b6;
+  --color-primary-fixed-dim: #83d99c;
+  --color-secondary: #46654e;
+  --color-secondary-container: #c5e9ca;
+  --color-tertiary: #762730;
+  --color-tertiary-container: #943e46;
+  --color-background: #f8f9fa;
+  --color-surface: #f8f9fa;
+  --color-surface-low: #f3f4f5;
+  --color-surface-container: #edeeef;
+  --color-surface-high: #e7e8e9;
+  --color-surface-highest: #e1e3e4;
+  --color-surface-lowest: #ffffff;
+  --color-surface-ghost: rgba(225, 227, 228, 0.72);
+  --color-surface-overlay: rgba(248, 249, 250, 0.86);
+  --color-surface-tint: #0b6d3b;
+  --color-on-background: #191c1d;
+  --color-on-surface: #191c1d;
+  --color-on-surface-variant: #3f4940;
+  --color-on-primary: #ffffff;
+  --color-outline: #6f7a70;
+  --color-outline-ghost: rgba(111, 122, 112, 0.15);
+  --color-shadow: rgba(0, 104, 55, 0.08);
+  --color-shadow-deep: rgba(25, 28, 29, 0.06);
+  --color-success-surface: rgba(158, 246, 182, 0.24);
+  --color-error-surface: rgba(148, 62, 70, 0.12);
+
+  --font-heading: 'Manrope', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-label: 'Inter', system-ui, sans-serif;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-pill: 999px;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.125rem;
+  --space-6: 1.5rem;
+  --space-7: 2rem;
+  --space-8: 2.5rem;
+  --space-9: 3rem;
+  --space-10: 4rem;
+
+  --shadow-soft: 0 20px 40px var(--color-shadow);
+  --shadow-card: 0 20px 60px rgba(25, 28, 29, 0.05);
+  --shadow-glass: 0 24px 48px rgba(25, 28, 29, 0.06);
+
+  --transition-fast: 200ms ease-out;
+  --transition-medium: 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-slow: 720ms cubic-bezier(0.22, 1, 0.36, 1);
+  --content-width: 80rem;
+}
