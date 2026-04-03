@@ -1,83 +1,99 @@
 # HUISHUB
 
-Digital portal for Haramaya University Information Systems students.
+HUISHUB is a modern web portal for the Haramaya University Information Systems student community.  
+It presents the department identity, explains the Information Systems field, shows year-based curriculum schedules, highlights career pathways, and connects students to the HUISHUB Telegram community.
+
+## About The Website
+
+The current website is a responsive single-page experience built to serve as a clean academic and community-facing platform. It includes:
+
+- A branded hero section with the HUISHUB identity and department spotlight
+- An About section describing Information Systems in a professional and readable way
+- A curriculum section with separate Semester I and Semester II schedule tables for each academic year
+- A career section that highlights Information Systems roles, skills, and growth areas
+- A responsive navigation system:
+  - fixed top navigation on larger screens
+  - bottom icon navigation on mobile devices
+- Footer details covering security, licensing, availability, support, and rights information
 
 ## Tech Stack
 
 - Frontend: React + TypeScript + Vite
-- Backend (v1): Fastify + TypeScript + Prisma + SQLite
+- Backend service: Fastify + TypeScript + Prisma
+- Styling: custom CSS with responsive layout and component-level UI structure
 
 ## Project Structure
 
-- `src/` - React frontend
-- `backend/` - join-request API service
+- `src/` - main React application
+- `public/` - static assets such as logos, favicon, and images
+- `backend/` - separate API service
 
-## Getting Started
+## Running The Project
 
-1. Install dependencies at the root:
+### Frontend Only
 
-   ```bash
-   npm install
-   ```
+Install dependencies and start the website:
 
-2. Install backend dependencies (already included if cloned with lockfiles, run if needed):
+```bash
+npm install
+npm run dev
+```
 
-   ```bash
-   npm install --prefix backend
-   ```
+The frontend runs on `http://localhost:5173`.
 
-3. Create backend env file:
+### Frontend + Backend
 
-   ```bash
-   cp backend/.env.example backend/.env
-   ```
+If you also want to run the backend service:
 
-4. Run Prisma migration:
+```bash
+npm install
+npm install --prefix backend
+cp backend/.env.example backend/.env
+npm run dev:all
+```
 
-   ```bash
-   npm run prisma:migrate --prefix backend -- --name init_join_requests
-   ```
-
-5. Start frontend + backend together:
-
-   ```bash
-   npm run dev:all
-   ```
-
-Frontend runs on `http://localhost:5173` and backend on `http://localhost:3000`.
-
-## Environment Variables
-
-### Frontend
-
-- `VITE_API_BASE_URL` (see `.env.example`)
-  - Default local value: `/api` (proxied by Vite to backend)
-
-### Backend
-
-- `DATABASE_URL` (see `backend/.env.example`)
-- `PORT` (default `3000`)
-- `CORS_ORIGIN` (default `http://localhost:5173`)
+The backend runs on `http://localhost:3000`.
 
 ## Available Scripts
 
 ### Root
 
-- `npm run dev` - start frontend only
-- `npm run dev:backend` - start backend only
+- `npm run dev` - start the frontend
+- `npm run dev:backend` - start the backend only
 - `npm run dev:all` - start frontend and backend together
-- `npm run build` - build frontend
-- `npm run build:backend` - build backend
+- `npm run build` - build the frontend for production
+- `npm run build:backend` - build the backend
+- `npm run lint` - run ESLint
+- `npm run preview` - preview the frontend production build
 
 ### Backend
 
-- `npm run dev --prefix backend`
-- `npm run build --prefix backend`
-- `npm run prisma:generate --prefix backend`
-- `npm run prisma:migrate --prefix backend`
+- `npm run dev --prefix backend` - run the backend in watch mode
+- `npm run build --prefix backend` - build the backend
+- `npm run prisma:generate --prefix backend` - generate Prisma client
+- `npm run prisma:migrate --prefix backend` - run Prisma migrations
+- `npm run prisma:studio --prefix backend` - open Prisma Studio
 
-## API (v1)
+## Environment Variables
 
-- `GET /health`
-- `POST /api/join-requests`
-  - body: `{ fullName, studentId, year, email }`
+### Frontend
+
+- `VITE_API_BASE_URL`
+  - default example value: `/api`
+
+### Backend
+
+- `DATABASE_URL`
+- `PORT`
+- `CORS_ORIGIN`
+
+See:
+
+- [`.env.example`](/home/yotor/Desktop/Projects/HUISHUB/.env.example)
+- [`backend/.env.example`](/home/yotor/Desktop/Projects/HUISHUB/backend/.env.example)
+
+## Notes
+
+- The current public website is focused on the frontend portal experience.
+- The backend service remains available as a separate part of the project.
+- The site is designed to be mobile-friendly, visually branded, and suitable for hosting as a student community web presence.
