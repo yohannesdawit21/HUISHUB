@@ -4,6 +4,7 @@ import { HeroSection } from './components/HeroSection'
 import { Navigation } from './components/Navigation'
 import { OverviewSection } from './components/OverviewSection'
 import {
+  footerDetails,
   careerPaths,
   curriculumYears,
   footerLinks,
@@ -52,6 +53,19 @@ function App() {
             </a>
           ))}
         </nav>
+
+        <div className="page-footer__details" aria-label="Platform details">
+          {footerDetails.map((detail) => (
+            <article className="page-footer__detail-card" key={detail.label}>
+              <p className="page-footer__detail-label">{detail.label}</p>
+              <p className="page-footer__detail-copy">{detail.description}</p>
+            </article>
+          ))}
+        </div>
+
+        <p className="page-footer__rights">
+          © 2026 HUISHUB. All rights reserved.
+        </p>
       </footer>
     </div>
   )

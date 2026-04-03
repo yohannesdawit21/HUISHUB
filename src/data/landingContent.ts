@@ -61,6 +61,11 @@ export type GrowthMetric = {
   value: string
 }
 
+export type FooterDetail = {
+  description: string
+  label: string
+}
+
 export type OverviewCard = {
   bullets: string[]
   description: string
@@ -534,4 +539,23 @@ export const footerLinks = [
   { href: '#curriculum', label: 'Curriculum' },
   { href: '#career', label: 'Career' },
   { href: '#top', label: 'Back to Top' },
+]
+
+export const footerDetails: FooterDetail[] = [
+  {
+    label: 'Security',
+    description: 'Student-facing content is delivered over modern web standards with controlled access to hosted services and minimal public attack surface.',
+  },
+  {
+    label: 'License',
+    description: 'Platform branding, curriculum presentation, and academic content remain protected for HUISHUB community use unless separately authorized.',
+  },
+  {
+    label: 'Availability',
+    description: 'The portal is designed for reliable browser access across desktop and mobile devices with responsive layouts and progressive enhancement.',
+  },
+  {
+    label: 'Support',
+    description: 'For corrections, administrative updates, or operational questions, users should coordinate through the HUISHUB student community channels.',
+  },
 ]
