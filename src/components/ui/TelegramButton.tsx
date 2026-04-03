@@ -36,7 +36,7 @@ export function TelegramButton({
         .filter(Boolean)
         .join(' ')}
       href="https://t.me/HUISHUB"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       target="_blank"
     >
       <span className="telegram-button__icon">

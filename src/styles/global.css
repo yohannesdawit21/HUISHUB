@@ -211,19 +211,20 @@ ul {
   position: fixed;
   left: 50%;
   bottom: 0;
-  z-index: 50;
+  z-index: 80;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.22rem;
   width: min(calc(100% - 0.6rem), 31rem);
   padding: 0.45rem 0.45rem calc(0.75rem + env(safe-area-inset-bottom));
-  transform: translateX(-50%);
+  transform: translate3d(-50%, 0, 0);
   border: 1px solid rgba(111, 122, 112, 0.12);
   border-bottom: 0;
   border-radius: 1.45rem 1.45rem 0 0;
   background: rgba(248, 249, 250, 0.88);
   backdrop-filter: blur(18px);
   box-shadow: 0 -0.8rem 2rem rgba(25, 28, 29, 0.08);
+  will-change: transform;
 }
 
 .mobile-nav__link {
@@ -482,12 +483,19 @@ ul {
 .section {
   position: relative;
   overflow: hidden;
+  scroll-margin-top: calc(var(--nav-offset) + 0.9rem);
+  scroll-margin-bottom: calc(6rem + env(safe-area-inset-bottom));
   padding: clamp(1.5rem, 4vw, 3rem);
   border: 1px solid rgba(111, 122, 112, 0.12);
   border-radius: calc(var(--radius-xl) + 0.2rem);
   background: rgba(255, 255, 255, 0.82);
   box-shadow: 0 1.4rem 3rem rgba(25, 28, 29, 0.06);
   backdrop-filter: blur(12px);
+}
+
+.page-footer {
+  scroll-margin-top: calc(var(--nav-offset) + 0.9rem);
+  scroll-margin-bottom: calc(6rem + env(safe-area-inset-bottom));
 }
 
 .section::before {
@@ -1061,6 +1069,7 @@ ul {
   font-size: 0.95rem;
   line-height: 1.55;
   vertical-align: top;
+  overflow-wrap: anywhere;
 }
 
 .curriculum-table tbody tr:nth-child(odd) {
@@ -1086,6 +1095,10 @@ ul {
   color: var(--color-primary);
   font-family: var(--font-label);
   font-weight: 700;
+}
+
+.curriculum-table__instructor {
+  min-width: 11rem;
 }
 
 .curriculum-table__instructor--muted {
@@ -1390,10 +1403,24 @@ ul {
 
   .hero__quote-header {
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero__quote-profile,
+  .hero__quote-meta {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .hero__quote-image {
+    margin-inline: auto;
   }
 
   .hero__quote-link {
     width: 100%;
+    max-width: 16rem;
+    margin-inline: auto;
   }
 
   .page-footer__brand {
@@ -1407,6 +1434,16 @@ ul {
   .mobile-nav__label {
     max-width: 3.6rem;
     font-size: 0.58rem;
+  }
+}
+
+@media (max-width: 719px) {
+  .site-nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: grid;
   }
 }
 

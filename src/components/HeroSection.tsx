@@ -40,7 +40,11 @@ export function HeroSection({ content }: HeroSectionProps) {
             <img
               alt={content.quoteCard.imageAlt}
               className="hero__quote-image"
+              height="1005"
+              loading="eager"
+              sizes="68px"
               src={content.quoteCard.imageSrc}
+              width="974"
             />
 
             <div className="hero__quote-profile">
@@ -55,7 +59,7 @@ export function HeroSection({ content }: HeroSectionProps) {
                 aria-label={`Open LinkedIn profile for ${content.quoteCard.name}`}
                 className="hero__quote-link"
                 href={content.quoteCard.linkedinUrl}
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 <svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
